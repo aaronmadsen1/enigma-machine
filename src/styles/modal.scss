@@ -1,0 +1,46 @@
+.modal-header {
+  // background-color: rgb(223, 223, 223);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 2px;
+  // box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.34);
+
+  .modal-title {
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+  }
+
+  .close-icon {
+    font-size: 30px;
+    margin-right: 10px;
+
+    .close-modal-button {
+      text-align: right;
+    }
+  }
+}
+
+.enigma-settings-container {
+  height: 200px;
+}
+
+.modal-text-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .text-submit-button {
+    @include submit-buttons();
+    margin-top: 4px;
+    margin-bottom: 15px;
+  }
+  .text-field {
+    height: 80px;
+    width: 95%;
+    resize: none;
+    margin-bottom: 2px;
+  }
+}
