@@ -14,13 +14,13 @@ const App = () => {
   const handleEncryptModalToggle = e => {
     // e.preventDefault()
     setIsEncryptOpen(!isEncryptOpen)
-    console.log(isEncryptOpen)
+    // console.log(isEncryptOpen)
   }
 
   const handleDecryptModalToggle = e => {
     // e.preventDefault()
     setIsDecryptOpen(!isDecryptOpen)
-    console.log(isDecryptOpen)
+    // console.log(isDecryptOpen)
   }
 
   return (
