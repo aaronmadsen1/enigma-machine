@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect, useRef } from "react"
+import Select from "react-select"
 import { Link } from "react-router-dom"
 import ReactModal from "react-modal"
 import axios from "axios"
@@ -13,89 +14,89 @@ const EnigmaEncryptModal = props => {
   const [userMessage, setUserMessage] = useState("")
   const [encryptedMessage, setEncryptedMessage] = useState("")
   const [encryptedMessageLog, setEncryptedMessageLog] = useState("")
-  // const [encryptModalOpen, setEncryptModalOpen] = useState(true)
 
-  const [showRotorADropdown, setShowRotorADropdown] = useState(false)
-  const [showRotorBDropdown, setShowRotorBDropdown] = useState(false)
-  const [showRotorCDropdown, setShowRotorCDropdown] = useState(false)
-
-  const [rotorA_position, setRotorA_position] = useState(1)
-  const [rotorB_position, setRotorB_position] = useState(2)
-  const [rotorC_position, setRotorC_position] = useState(3)
+  const [rotorA_position, setRotorA_position] = useState("")
+  const [rotorB_position, setRotorB_position] = useState("")
+  const [rotorC_position, setRotorC_position] = useState("")
   const [plugboard_initialSetting, setPlugboard_initialSetting] = useState(4)
-  const [rotorA_initialSettings, setRotorA_initialSettings] = useState(5)
-  const [rotorB_initialSettings, setRotorB_initialSettings] = useState(6)
-  const [rotorC_initialSettings, setRotorC_initialSettings] = useState(7)
+  const [rotorA_initialSettings, setRotorA_initialSettings] = useState("")
+  const [rotorB_initialSettings, setRotorB_initialSettings] = useState("")
+  const [rotorC_initialSettings, setRotorC_initialSettings] = useState("")
   const [reflector_initialSetting, setReflector_initialSetting] = useState(8)
 
-  const numListForRotorSetting = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    39,
-    40,
-    41,
-    42,
-    43,
-    44,
-    45,
-    46,
-    47,
-    48,
-    49,
-    50,
-    51,
-    52,
-    53,
-    54,
-    55,
-    56,
-    57,
-    58,
-    59,
-    60,
-    61,
-    62,
-    63,
-    64,
-    65,
-    66
-  ]
+  const [numListForRotorSetting, setNumListForRotorSetting] = useState([
+    { value: 1, label: 1 },
+    { value: 2, label: 2 },
+    { value: 3, label: 3 },
+    { value: 4, label: 4 },
+    { value: 5, label: 5 },
+    { value: 6, label: 6 },
+    { value: 7, label: 7 },
+    { value: 8, label: 8 },
+    { value: 9, label: 9 },
+    { value: 10, label: 10 },
+    { value: 11, label: 11 },
+    { value: 12, label: 12 },
+    { value: 13, label: 13 },
+    { value: 14, label: 14 },
+    { value: 15, label: 15 },
+    { value: 16, label: 16 },
+    { value: 17, label: 17 },
+    { value: 18, label: 18 },
+    { value: 19, label: 19 },
+    { value: 20, label: 20 },
+    { value: 21, label: 21 },
+    { value: 22, label: 22 },
+    { value: 23, label: 23 },
+    { value: 24, label: 24 },
+    { value: 25, label: 25 },
+    { value: 26, label: 26 },
+    { value: 27, label: 27 },
+    { value: 28, label: 28 },
+    { value: 29, label: 29 },
+    { value: 30, label: 30 },
+    { value: 31, label: 31 },
+    { value: 32, label: 32 },
+    { value: 33, label: 33 },
+    { value: 34, label: 34 },
+    { value: 35, label: 35 },
+    { value: 36, label: 36 },
+    { value: 37, label: 37 },
+    { value: 38, label: 38 },
+    { value: 39, label: 39 },
+    { value: 40, label: 40 },
+    { value: 41, label: 41 },
+    { value: 42, label: 42 },
+    { value: 43, label: 43 },
+    { value: 44, label: 44 },
+    { value: 45, label: 45 },
+    { value: 46, label: 46 },
+    { value: 47, label: 47 },
+    { value: 48, label: 48 },
+    { value: 49, label: 49 },
+    { value: 50, label: 50 },
+    { value: 51, label: 51 },
+    { value: 52, label: 52 },
+    { value: 53, label: 53 },
+    { value: 54, label: 54 },
+    { value: 55, label: 55 },
+    { value: 56, label: 56 },
+    { value: 57, label: 57 },
+    { value: 58, label: 58 },
+    { value: 59, label: 59 },
+    { value: 60, label: 60 },
+    { value: 61, label: 61 },
+    { value: 62, label: 62 },
+    { value: 63, label: 63 },
+    { value: 64, label: 64 },
+    { value: 65, label: 65 },
+    { value: 66, label: 66 }
+  ])
+  const [numListForRotorPosition, setNumListForRotorPosition] = useState([
+    { value: 1, label: 1 },
+    { value: 2, label: 2 },
+    { value: 3, label: 3 }
+  ])
 
   const [customStyles] = useState({
     content: {
@@ -180,86 +181,11 @@ const EnigmaEncryptModal = props => {
     )
   }
 
-  const handleRotorASetting = rotorASetting => {
-    setRotorA_initialSettings(rotorASetting)
-    handleRotorASettingsDropdown()
-  }
-  const handleRotorBSetting = rotorBSetting => {
-    setRotorB_initialSettings(rotorBSetting)
-    handleRotorBSettingsDropdown()
-  }
-  const handleRotorCSetting = rotorCSetting => {
-    setRotorC_initialSettings(rotorCSetting)
-    handleRotorCSettingsDropdown()
-  }
-
-  const handleRotorASettingsDropdown = () => {
-    if (showRotorADropdown === false) {
-      setShowRotorADropdown(true)
-      setShowRotorBDropdown(false)
-      setShowRotorCDropdown(false)
-    } else {
-      setShowRotorADropdown(false)
-    }
-  }
-  const handleRotorBSettingsDropdown = () => {
-    if (showRotorBDropdown === false) {
-      setShowRotorADropdown(false)
-      setShowRotorBDropdown(true)
-      setShowRotorCDropdown(false)
-    } else {
-      setShowRotorBDropdown(false)
-    }
-  }
-  const handleRotorCSettingsDropdown = () => {
-    if (showRotorCDropdown === false) {
-      setShowRotorADropdown(false)
-      setShowRotorBDropdown(false)
-      setShowRotorCDropdown(true)
-    } else {
-      setShowRotorCDropdown(false)
-    }
-  }
-
-  // const closeAllDropdowns = e => {
-  //   // if ()
-
-  //   setShowRotorADropdown(false)
-  //   setShowRotorBDropdown(false)
-  //   setShowRotorCDropdown(false)
-  // }
-
   useEffect(() => {
     returnSubmittedMessageId()
     setEncryptedMessage("")
     setUserMessage("")
   }, [encryptedMessageLog])
-
-  // const node = useRef()
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClick)
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClick)
-  //   }
-  // }, [])
-
-  // const handleClick = e => {
-  //   if (encryptModalOpen === false) {
-  //     console.log("false", encryptModalOpen)
-  //   } else {
-  //     if (node.current.contains(e.target)) {
-  //       return
-  //     }
-  //     console.log("true", encryptModalOpen)
-  //     setShowRotorADropdown(false)
-  //     setShowRotorBDropdown(false)
-  //     setShowRotorCDropdown(false)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   setEncryptModalOpen(true)
-  // }, [])
 
   return (
     <ReactModal
@@ -285,105 +211,92 @@ const EnigmaEncryptModal = props => {
         <div className="modal-body-App">
           <div className="enigma-settings-container">
             {/* * * * * * * * * * * * * * * * * * * * * * * * * * Rotor Settings * * * * * * * * * * * * * * * * */}
-            <div
-              // ref={node}
-              className="rotor-settings-wrapper"
-            >
+            <div className="rotor-settings-wrapper">
               <div className="rotor-settings-header">
                 Initial Rotor Settings
               </div>
-              <div className="rotor">
-                <div className="rotor-header">Rotor A</div>
-                <div className="dropdown-list">
-                  {showRotorADropdown ? (
-                    <div className="show-my-list">
-                      {numListForRotorSetting.map(item => (
-                        // <a> {item}</a>
-                        <button onClick={e => handleRotorASetting(item)}>
-                          {item}
-                        </button>
-                      ))}
+              <div className="rotor-settings">
+                {/* * * * * * * * * * * * * * * * * * * * * * * * * * Rotor Position * * * * * * * * * * * * * * * * */}
+                <div className="rotor-dropdowns-with-title">
+                  Rotor Position
+                  <div className="rotor-dropdowns">
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor A</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorPosition}
+                          onChange={e => setRotorA_position(e.value)}
+                        />
+                      </div>
                     </div>
-                  ) : (
-                    <div
-                      onClick={handleRotorASettingsDropdown}
-                      className="hide-my-list"
-                    >
-                      {rotorA_initialSettings}
-                    </div>
-                  )}
 
-                  <button
-                    className="dropdown-arrow"
-                    onClick={handleRotorASettingsDropdown}
-                  >
-                    <FontAwesomeIcon icon="sort-down"></FontAwesomeIcon>{" "}
-                  </button>
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor B</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorPosition}
+                          onChange={e => setRotorB_position(e.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor C</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorPosition}
+                          onChange={e => setRotorC_position(e.value)}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="rotor">
-                <div className="rotor-header">Rotor B</div>
-
-                <div className="dropdown-list">
-                  {showRotorBDropdown ? (
-                    <div className="show-my-list">
-                      {numListForRotorSetting.map(item => (
-                        // <a> {item}</a>
-                        <button onClick={e => handleRotorBSetting(item)}>
-                          {item}
-                        </button>
-                      ))}
+                {/* * * * * * * * * * * * * * * * * * * * * * * * * * Rotor Index * * * * * * * * * * * * * * * * */}
+                <div className="rotor-dropdowns-with-title">
+                  Rotor Start Index
+                  <div className="rotor-dropdowns">
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor A</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorSetting}
+                          onChange={e => setRotorA_initialSettings(e.value)}
+                        />
+                      </div>
                     </div>
-                  ) : (
-                    <div
-                      onClick={handleRotorBSettingsDropdown}
-                      className="hide-my-list"
-                    >
-                      {rotorB_initialSettings}
-                    </div>
-                  )}
 
-                  <button
-                    className="dropdown-arrow"
-                    onClick={handleRotorBSettingsDropdown}
-                  >
-                    <FontAwesomeIcon icon="sort-down"></FontAwesomeIcon>{" "}
-                  </button>
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor B</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorSetting}
+                          onChange={e => setRotorB_initialSettings(e.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="rotor">
+                      <div className="rotor-header">Rotor C</div>
+                      <div className="dropdown-list">
+                        <Select
+                          // value={selectedOption}
+                          options={numListForRotorSetting}
+                          onChange={e => setRotorC_initialSettings(e.value)}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="rotor">
-                <div className="rotor-header">Rotor C</div>
-
-                <div className="dropdown-list">
-                  {showRotorCDropdown ? (
-                    <div className="show-my-list">
-                      {numListForRotorSetting.map(item => (
-                        // <a> {item}</a>
-                        <button onClick={e => handleRotorCSetting(item)}>
-                          {item}
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <div
-                      onClick={handleRotorCSettingsDropdown}
-                      className="hide-my-list"
-                    >
-                      {rotorC_initialSettings}
-                    </div>
-                  )}
-
-                  <button
-                    className="dropdown-arrow"
-                    onClick={handleRotorCSettingsDropdown}
-                  >
-                    <FontAwesomeIcon icon="sort-down"></FontAwesomeIcon>{" "}
-                  </button>
-                </div>
+                {/* **************************************** */}
               </div>
             </div>
+            {/* ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Rotor Settings ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ */}
           </div>
-          {/* ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Rotor Settings ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ */}
           <div className="modal-text-fields">
             <div className="modal-text-field">
               <div className="char-count">

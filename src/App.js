@@ -8,8 +8,8 @@ import History from "./pages/history"
 import NavBar from "./components/nav-bar"
 
 const App = () => {
-  const [isEncryptOpen, setIsEncryptOpen] = useState(true)
-  const [isDecryptOpen, setIsDecryptOpen] = useState(false)
+  const [isEncryptOpen, setIsEncryptOpen] = useState(false)
+  const [isDecryptOpen, setIsDecryptOpen] = useState(true)
 
   const handleEncryptModalToggle = e => {
     // e.preventDefault()
