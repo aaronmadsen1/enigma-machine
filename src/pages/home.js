@@ -4,16 +4,19 @@ import EnigmaDecryptModal from "../modals/enigma-decrypt-modal"
 
 const Home = props => {
   return (
-    <div className="home-page-wrapper">
+    <div className="modal-prop-includer">
       <EnigmaEncryptModal
         handleEncryptModalToggle={props.handleEncryptModalToggle}
+        handleDecryptModalToggle={props.handleDecryptModalToggle}
         isEncryptOpen={props.isEncryptOpen}
       />
       <EnigmaDecryptModal
         handleDecryptModalToggle={props.handleDecryptModalToggle}
+        handleEncryptModalToggle={props.handleEncryptModalToggle}
         isDecryptOpen={props.isDecryptOpen}
       />
-      Home Page
+
+      <div className="home-page-container">hi</div>
     </div>
   )
 }

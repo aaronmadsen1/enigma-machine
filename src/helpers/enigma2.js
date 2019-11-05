@@ -4,6 +4,7 @@ const beginEncryption2 = (
   rotorA_position,
   rotorB_position,
   rotorC_position,
+  plugboardSwap,
   plugboard_initialSetting,
   rotorA_initialSettings,
   rotorB_initialSettings,
@@ -722,30 +723,48 @@ const beginEncryption2 = (
   const b = rotorB_position - 1
   const c = rotorC_position - 1
 
-  for (let plug = 0; plug < plugboard_initialSetting; plug++) {
-    plugboardList.unshift(plugboardList.pop())
+  const setInitialSettings = () => {
+    let x = 0
+    let y = 1
+    for (let p = 0; p < plugboardSwap.length / 2; p++) {
+      let first = plugboardList.indexOf(alphabetList.indexOf(plugboardSwap[x]))
+      let second = plugboardList.indexOf(alphabetList.indexOf(plugboardSwap[y]))
+      plugboardList[first] = plugboardList.splice(
+        second,
+        1,
+        plugboardList[first]
+      )[0]
+      x += 2
+      y += 2
+    }
+
+    for (let plug = 0; plug < plugboard_initialSetting; plug++) {
+      plugboardList.unshift(plugboardList.pop())
+    }
+    for (let rotor1 = 0; rotor1 < rotorA_initialSettings; rotor1++) {
+      rotorsIn[a].unshift(rotorsIn[a].pop())
+      rotorsOut[a].unshift(rotorsOut[a].pop())
+    }
+    for (let rotor2 = 0; rotor2 < rotorB_initialSettings; rotor2++) {
+      rotorsIn[b].unshift(rotorsIn[b].pop())
+      rotorsOut[b].unshift(rotorsOut[b].pop())
+    }
+    for (let rotor3 = 0; rotor3 < rotorC_initialSettings; rotor3++) {
+      rotorsIn[c].unshift(rotorsIn[c].pop())
+      rotorsOut[c].unshift(rotorsOut[c].pop())
+    }
+    for (let reflect = 0; reflect < reflector_initialSetting; reflect++) {
+      reflectorList.unshift(reflectorList.pop())
+    }
+    convertCharToNum(userCharMessage)
   }
-  for (let rotor1 = 0; rotor1 < rotorA_initialSettings; rotor1++) {
-    rotorsIn[a].unshift(rotorsIn[a].pop())
-    rotorsOut[a].unshift(rotorsOut[a].pop())
-  }
-  for (let rotor2 = 0; rotor2 < rotorB_initialSettings; rotor2++) {
-    rotorsIn[b].unshift(rotorsIn[b].pop())
-    rotorsOut[b].unshift(rotorsOut[b].pop())
-  }
-  for (let rotor3 = 0; rotor3 < rotorC_initialSettings; rotor3++) {
-    rotorsIn[c].unshift(rotorsIn[c].pop())
-    rotorsOut[c].unshift(rotorsOut[c].pop())
-  }
-  for (let reflect = 0; reflect < reflector_initialSetting; reflect++) {
-    reflectorList.unshift(reflectorList.pop())
-  }
+
   let testing = encrypting
   const encryptedMessage = []
   let secondRotorIncrementer = 1
   let thirdRotorIncrementer = 1
-  const numericMessage = []
-  const encryptedNumList = []
+  // const numericMessage = []
+  // const encryptedNumList = []
 
   const convertCharToNum = userCharMessage => {
     let numericMessage = []
@@ -835,7 +854,7 @@ const beginEncryption2 = (
     }
   }
 
-  convertCharToNum(userCharMessage)
+  setInitialSettings()
 
   const testFunk = encryptedMessage => {
     const message = encryptedMessage

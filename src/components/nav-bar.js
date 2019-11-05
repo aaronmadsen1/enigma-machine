@@ -13,20 +13,20 @@ const NavBar = props => {
           </Link>
         </div>
         <div>
-          <button
+          <Link
+            className="nav-link-button"
             onClick={props.handleEncryptModalToggle}
-            className="enigma-encrypt-modal"
           >
             Encrypt
-          </button>
+          </Link>
         </div>
         <div>
-          <button
+          <Link
+            className="nav-link-button"
             onClick={props.handleDecryptModalToggle}
-            className="enigma-decrypt-modal"
           >
             Decrypt
-          </button>
+          </Link>
         </div>
         <div>
           <Link className="nav-link-button" to="/history">

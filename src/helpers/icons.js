@@ -1,6 +1,7 @@
 import {
   faTimes,
   faSortDown,
+  faArrowsAltV,
   faTrash,
   faPhoneVolume,
   faMapPin
@@ -9,7 +10,14 @@ import {
 import { library } from "@fortawesome/fontawesome-svg-core"
 
 const Icons = () => {
-  return library.add(faTimes, faSortDown, faTrash, faPhoneVolume, faMapPin)
+  return library.add(
+    faTimes,
+    faSortDown,
+    faArrowsAltV,
+    faTrash,
+    faPhoneVolume,
+    faMapPin
+  )
 }
 
 export default Icons

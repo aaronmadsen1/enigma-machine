@@ -9,7 +9,7 @@ import NavBar from "./components/nav-bar"
 
 const App = () => {
   const [isEncryptOpen, setIsEncryptOpen] = useState(false)
-  const [isDecryptOpen, setIsDecryptOpen] = useState(true)
+  const [isDecryptOpen, setIsDecryptOpen] = useState(false)
 
   const handleEncryptModalToggle = e => {
     // e.preventDefault()

@@ -3,7 +3,6 @@ import Select from "react-select"
 import { Link } from "react-router-dom"
 import ReactModal from "react-modal"
 import axios from "axios"
-// import beginEncryption from "../helpers/enigma"
 import beginEncryption2 from "../helpers/enigma2"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Icons from "../helpers/icons"
@@ -14,18 +13,35 @@ const EnigmaDecryptModal = props => {
   const [encryptedMessage, setEncryptedMessage] = useState("")
   const [decryptedMessage, setDecryptedMessage] = useState("")
 
-  const [showRotorADropdown, setShowRotorADropdown] = useState(false)
-  const [showRotorBDropdown, setShowRotorBDropdown] = useState(false)
-  const [showRotorCDropdown, setShowRotorCDropdown] = useState(false)
-
   const [rotorA_position, setRotorA_position] = useState("")
   const [rotorB_position, setRotorB_position] = useState("")
   const [rotorC_position, setRotorC_position] = useState("")
-  const [plugboard_initialSetting, setPlugboard_initialSetting] = useState(4)
   const [rotorA_initialSettings, setRotorA_initialSettings] = useState("")
   const [rotorB_initialSettings, setRotorB_initialSettings] = useState("")
   const [rotorC_initialSettings, setRotorC_initialSettings] = useState("")
-  const [reflector_initialSetting, setReflector_initialSetting] = useState(8)
+  const [reflector_initialSetting, setReflector_initialSetting] = useState(0)
+
+  const [plugboard_initialSetting, setPlugboard_initialSetting] = useState(0)
+  const [plugboardLetter_1a, setPlugboardLetter_1a] = useState("")
+  const [plugboardLetter_1b, setPlugboardLetter_1b] = useState("")
+  const [plugboardLetter_2a, setPlugboardLetter_2a] = useState("")
+  const [plugboardLetter_2b, setPlugboardLetter_2b] = useState("")
+  const [plugboardLetter_3a, setPlugboardLetter_3a] = useState("")
+  const [plugboardLetter_3b, setPlugboardLetter_3b] = useState("")
+  const [plugboardLetter_4a, setPlugboardLetter_4a] = useState("")
+  const [plugboardLetter_4b, setPlugboardLetter_4b] = useState("")
+  const [plugboardLetter_5a, setPlugboardLetter_5a] = useState("")
+  const [plugboardLetter_5b, setPlugboardLetter_5b] = useState("")
+  const [plugboardLetter_6a, setPlugboardLetter_6a] = useState("")
+  const [plugboardLetter_6b, setPlugboardLetter_6b] = useState("")
+  const [plugboardLetter_7a, setPlugboardLetter_7a] = useState("")
+  const [plugboardLetter_7b, setPlugboardLetter_7b] = useState("")
+  const [plugboardLetter_8a, setPlugboardLetter_8a] = useState("")
+  const [plugboardLetter_8b, setPlugboardLetter_8b] = useState("")
+  const [plugboardLetter_9a, setPlugboardLetter_9a] = useState("")
+  const [plugboardLetter_9b, setPlugboardLetter_9b] = useState("")
+  const [plugboardLetter_10a, setPlugboardLetter_10a] = useState("")
+  const [plugboardLetter_10b, setPlugboardLetter_10b] = useState("")
 
   const [numListForRotorSetting, setNumListForRotorSetting] = useState([
     { value: 1, label: 1 },
@@ -95,22 +111,58 @@ const EnigmaDecryptModal = props => {
     { value: 65, label: 65 },
     { value: 66, label: 66 }
   ])
+
+  const [
+    alphatbetListforPlugboardSettings,
+    setAlphatbetListforPlugboardSettings
+  ] = useState([
+    { value: "A", label: "A" },
+    { value: "B", label: "B" },
+    { value: "C", label: "C" },
+    { value: "D", label: "D" },
+    { value: "E", label: "E" },
+    { value: "F", label: "F" },
+    { value: "G", label: "G" },
+    { value: "H", label: "H" },
+    { value: "I", label: "I" },
+    { value: "J", label: "J" },
+    { value: "K", label: "K" },
+    { value: "L", label: "L" },
+    { value: "M", label: "M" },
+    { value: "N", label: "N" },
+    { value: "O", label: "O" },
+    { value: "P", label: "P" },
+    { value: "Q", label: "Q" },
+    { value: "R", label: "R" },
+    { value: "S", label: "S" },
+    { value: "T", label: "T" },
+    { value: "U", label: "U" },
+    { value: "V", label: "V" },
+    { value: "W", label: "W" },
+    { value: "X", label: "X" },
+    { value: "Y", label: "Y" },
+    { value: "Z", label: "Z" }
+  ])
+
   const [numListForRotorPosition, setNumListForRotorPosition] = useState([
     { value: 1, label: 1 },
     { value: 2, label: 2 },
     { value: 3, label: 3 }
   ])
 
+  const bkgImg = require("../images/darkWood2.jpg")
+
   const [modalCustomStyles] = useState({
     content: {
       top: "5%",
-      bottom: "5%",
-      left: "5%",
-      right: "5%",
+      bottom: "3%",
+      left: "2%",
+      right: "2%",
       marginRight: "0%",
       transform: "translate(0%, 0%)",
-      backgroundColor: "rgba(45, 45, 45)",
-      boxShadow: "inset 0px 0px 300px 100px rgba(0, 0, 0, .5)"
+      // backgroundColor: "rgba(0, 0, 0, .9)",
+      backgroundImage: "url(" + bkgImg + ")",
+      boxShadow: "inset 0px 0px 300px 300px rgba(0, 0, 0, .6)"
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.64)"
@@ -135,7 +187,7 @@ const EnigmaDecryptModal = props => {
     control: provided => ({
       ...provided,
       // backgroundColor: "rgba(100, 100, 100)",
-      width: "100px",
+      width: "85px",
       border: "none",
       boxShadow: "1.5px 1.5px 4px 1px rgba(0, 0, 0, 0.64)",
       boxShadow: "inset 0px 0px 28px 16px rgba(0, 0, 0, 1)"
@@ -151,16 +203,16 @@ const EnigmaDecryptModal = props => {
     }),
     singleValue: provided => ({
       ...provided,
-      color: "rgb(205, 225, 227)"
+      color: "rgb(205, 225, 227)",
+      display: "inherit !important"
     })
-    // option: provided => ({
-    //   ...provided,
-    //   color: "white"
-    // })
   }
 
   // * * * * * * * * * * API CALLS * * * * * * * * * *
   const getMessage = () => {
+    if (messageId === "") {
+      return alert("Oops, looks like you forgot to enter the Message ID#")
+    }
     axios
       .get(
         `https://cors-anywhere.herokuapp.com/https://enigma-machine-backend.herokuapp.com/message/${messageId}`
@@ -172,41 +224,136 @@ const EnigmaDecryptModal = props => {
       })
       .catch(error => {
         console.log("Error Getting Message", error)
+        alert(
+          "Stormy weather somewhere maybe.. But we're having trouble retrieving your message. Please wait a sec and try again."
+        )
       })
   }
 
   const deleteMessage = () => {
+    if (messageId === "") {
+      return alert(
+        "Make sure you entered the ID# of the message you want to delete"
+      )
+    }
     axios
       .delete(
         `https://cors-anywhere.herokuapp.com/https://enigma-machine-backend.herokuapp.com/message/${messageId}`
       )
       .then(response => {
         console.log("Message Deleted", response)
+        alert("Message Successfully Deleted")
         setMessageId("")
         setEncryptedMessage("")
         setDecryptedMessage("")
       })
       .catch(error => {
         console.log("Error Deleting Message", error)
+        alert(
+          "For some reason we're having trouble contacting the server. Please try again in a bit.",
+          error
+        )
       })
   }
   // ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ API CALLS ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
 
+  const plugboardSwap = [
+    plugboardLetter_1a,
+    plugboardLetter_1b,
+    plugboardLetter_2a,
+    plugboardLetter_2b,
+    plugboardLetter_3a,
+    plugboardLetter_3b,
+    plugboardLetter_4a,
+    plugboardLetter_4b,
+    plugboardLetter_5a,
+    plugboardLetter_5b,
+    plugboardLetter_6a,
+    plugboardLetter_6b,
+    plugboardLetter_7a,
+    plugboardLetter_7b,
+    plugboardLetter_8a,
+    plugboardLetter_8b,
+    plugboardLetter_9a,
+    plugboardLetter_9b,
+    plugboardLetter_10a,
+    plugboardLetter_10b
+  ]
+
   const handleMessageDecrypt = e => {
-    setDecryptedMessage(
-      beginEncryption2(
-        encryptedMessage,
-        false,
-        rotorA_position,
-        rotorB_position,
-        rotorC_position,
-        plugboard_initialSetting,
-        rotorA_initialSettings,
-        rotorB_initialSettings,
-        rotorC_initialSettings,
-        reflector_initialSetting
-      )
-    )
+    if (
+      rotorA_position === "" ||
+      rotorB_position === "" ||
+      rotorC_position === "" ||
+      rotorA_initialSettings === "" ||
+      rotorB_initialSettings === "" ||
+      rotorC_initialSettings === "" ||
+      plugboardLetter_1a === "" ||
+      plugboardLetter_1b === "" ||
+      plugboardLetter_2a === "" ||
+      plugboardLetter_2b === "" ||
+      plugboardLetter_3a === "" ||
+      plugboardLetter_3b === "" ||
+      plugboardLetter_4a === "" ||
+      plugboardLetter_4b === "" ||
+      plugboardLetter_5a === "" ||
+      plugboardLetter_5b === "" ||
+      plugboardLetter_6a === "" ||
+      plugboardLetter_6b === "" ||
+      plugboardLetter_7a === "" ||
+      plugboardLetter_7b === "" ||
+      plugboardLetter_8a === "" ||
+      plugboardLetter_8b === "" ||
+      plugboardLetter_9a === "" ||
+      plugboardLetter_9b === "" ||
+      plugboardLetter_1a === "" ||
+      plugboardLetter_1b === ""
+    ) {
+      alert("Please choose all initial settings before decrypting")
+    } else {
+      if (encryptedMessage === "") {
+        alert("It appears there is no message to decrypt")
+      } else {
+        setDecryptedMessage(
+          beginEncryption2(
+            encryptedMessage,
+            false,
+            rotorA_position,
+            rotorB_position,
+            rotorC_position,
+            plugboardSwap,
+            plugboard_initialSetting,
+            rotorA_initialSettings,
+            rotorB_initialSettings,
+            rotorC_initialSettings,
+            reflector_initialSetting
+          )
+        )
+      }
+    }
+  }
+
+  const handleFilterRotorPositionList = value => {
+    let i = 0
+    for (let i = 0; i < numListForRotorPosition.length; i++) {
+      if (numListForRotorPosition[i].value == value) {
+        return numListForRotorPosition.splice(i, 1)
+      }
+    }
+  }
+
+  const handleFilterPlugboardList = value => {
+    let i = 0
+    for (let i = 0; i < numListForRotorPosition.length; i++) {
+      if (numListForRotorPosition[i].value == value) {
+        return numListForRotorPosition.splice(i, 1)
+      }
+    }
+  }
+
+  const handleModalSwitch = () => {
+    props.handleEncryptModalToggle()
+    props.handleDecryptModalToggle()
   }
 
   return (
@@ -219,7 +366,14 @@ const EnigmaDecryptModal = props => {
     >
       <div className="modal-container">
         <div className="modal-header">
-          <div className="modal-title">Enigma Decryption</div>
+          <div className="modal-title">
+            Enigma Decryption
+            <div className="link-to-other-modal">
+              <Link className="nav-link-button" onClick={handleModalSwitch}>
+                Encryption Module
+              </Link>
+            </div>
+          </div>
           <div className="close-icon">
             <a
               className="close-modal-button"
@@ -231,6 +385,292 @@ const EnigmaDecryptModal = props => {
         </div>
         <div className="modal-body-wrapper">
           <div className="enigma-settings-container">
+            {/* * * * * * * * * * * * * * * * * * * * * * * * * * Plugboard Settings * * * * * * * * * * * * * * * * */}
+            <div className="rotor-settings-wrapper">
+              <div className="rotor-settings-header initial-plugboard-settings-title">
+                Initial Plugboard Settings
+              </div>
+              <div className="rotor-settings">
+                {/* * * * * * * * * * * * * * * * * * * * * * * * * * Plugboard Choices * * * * * * * * * * * * * * * * */}
+                <div className="rotor-dropdowns-with-title">
+                  <div className="plugboard-dropdowns">
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 1</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_1a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_1a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_1b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_1b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 2</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_2a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_2a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_2b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_2b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 3</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_3a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_3a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_3b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_3b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 4</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_4a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_4a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_4b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_4b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 5</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_5a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_5a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_5b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_5b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 6</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_6a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_6a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_6b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_6b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 7</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_7a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_7a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_7b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_7b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 8</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_8a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_8a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_8b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_8b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 9</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_9a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_9a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_9b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_9b
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="plug-pair">
+                      <div className="plug-pair-header">Wire 10</div>
+                      <div className="dropdown-list">
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_10a(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_10a
+                          )}
+                        />
+                        <div className="double-arrow-icon">
+                          <FontAwesomeIcon icon="arrows-alt-v" />
+                        </div>
+                        <Select
+                          styles={dropdownCustomStyles}
+                          // value={selectedOption}
+                          options={alphatbetListforPlugboardSettings}
+                          onChange={e => setPlugboardLetter_10b(e.value)}
+                          onClick={handleFilterRotorPositionList(
+                            plugboardLetter_10b
+                          )}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* **************************************** */}
+              </div>
+            </div>
+            {/* ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ Plugboard Settings ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ */}
+
             {/* * * * * * * * * * * * * * * * * * * * * * * * * * Rotor Settings * * * * * * * * * * * * * * * * */}
             <div className="rotor-settings-wrapper">
               <div className="rotor-settings-header">
@@ -249,6 +689,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorA_position(e.value)}
+                          onClick={handleFilterPlugboardList(rotorA_position)}
                         />
                       </div>
                     </div>
@@ -261,6 +702,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorB_position(e.value)}
+                          onClick={handleFilterPlugboardList(rotorB_position)}
                         />
                       </div>
                     </div>
@@ -273,6 +715,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorC_position(e.value)}
+                          onClick={handleFilterPlugboardList(rotorC_position)}
                         />
                       </div>
                     </div>
@@ -324,7 +767,7 @@ const EnigmaDecryptModal = props => {
           </div>
 
           <div className="modal-text-fields">
-            <div className="modal-text-field">
+            <div className="modal-text-field added-padding-top">
               <textarea
                 className="text-field"
                 type="text"
@@ -335,7 +778,7 @@ const EnigmaDecryptModal = props => {
                 <textarea
                   className="id-field"
                   type="text"
-                  placeholder="Enter ID"
+                  placeholder="Enter ID#"
                   value={messageId}
                   onChange={e => setMessageId(e.target.value)}
                 />
@@ -350,7 +793,7 @@ const EnigmaDecryptModal = props => {
                 </a>
               </div>
             </div>
-            <div className="modal-text-field">
+            <div className="modal-text-field added-padding-top">
               <textarea
                 className="text-field"
                 type="text"
