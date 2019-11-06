@@ -33,9 +33,10 @@ const Home = props => {
               </div>
               <div className="inner-container">
                 Here, you can encrypt, and submit messages to the cloud by
-                setting your own initial Enigma Machine settings. You can later
-                retrieve the message, using the message ID provided upon
-                submission, and decrypt it.
+                setting your own initial Enigma Machine settings from the
+                dropdowns in the "Encrypt" tab. You can later retrieve the
+                message, using the message ID provided upon submission, and
+                decrypt it on the "Decrypt" tab.
               </div>
               <div className="inner-container">
                 Just be sure to write down, or take a picture or screenshot of
