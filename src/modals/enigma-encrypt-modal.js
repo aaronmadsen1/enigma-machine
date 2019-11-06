@@ -155,14 +155,17 @@ const EnigmaEncryptModal = props => {
 
   const [modalCustomStyles] = useState({
     content: {
-      top: "5%",
+      top: "15%",
       bottom: "3%",
-      left: "2%",
-      right: "2%",
+      left: "5%",
+      right: "5%",
       marginRight: "0%",
       transform: "translate(0%, 0%)",
       // backgroundColor: "rgba(45, 45, 45)",
       backgroundImage: "url(" + bkgImg + ")",
+      // clipPath:
+      //   "polygon(10% 0,90% 0,100% 8%,100% 92%,92% 100%,8% 100%,0 90%,0 8%)",
+      border: "1px solid #638068",
       boxShadow: "inset 0px 0px 300px 100px rgba(0, 0, 0, .7)"
     },
     overlay: {
@@ -385,7 +388,7 @@ const EnigmaEncryptModal = props => {
       <div className="modal-container">
         <div className="modal-header">
           <div className="modal-title">
-            Enigma Encryption
+            Encryption
             <div className="link-to-other-modal">
               <Link className="nav-link-button" onClick={handleModalSwitch}>
                 Decryption Module
@@ -822,7 +825,7 @@ const EnigmaEncryptModal = props => {
               <textarea
                 className="text-field"
                 type="text"
-                placeholder={"Encrypted message will appear here"}
+                placeholder={"Encrypted message will be shown here"}
                 value={encryptedMessage}
               ></textarea>
               <div className="text-field-sub-buttons">

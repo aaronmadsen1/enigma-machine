@@ -6,6 +6,7 @@
   width: 100vw;
   height: 200px;
   position: fixed;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 83% 100%, 17% 100%, 0% 80%);
   box-shadow: 4px 4px 19px 5px rgba(0, 0, 0, 0.8),
     inset 0 0 80px 30px rgba(0, 0, 0, 0.7);
 
@@ -26,13 +27,26 @@
     align-items: center;
     flex-wrap: wrap;
     width: 65vw;
-    padding-top: 3px;
+    padding: 10px 0px;
     margin-bottom: 20px;
     // position: relative;
+    // clip-path: polygon(
+    //   90% 0,
+    //   100% 8%,
+    //   100% 92%,
+    //   92% 100%,
+    //   8% 100%,
+    //   0 90%,
+    //   0 8%,
+    //   10% 0
+    // );
+    clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+    // box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.7),
+    //   inset 0 0 14px 5px rgba(0, 0, 0, 0.5);
 
     .nav-link-button {
       @include nav-bar-buttons();
-      // margin: 10px 5px;
+      margin: 10px 10px;
     }
   }
 }

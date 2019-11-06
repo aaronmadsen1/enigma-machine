@@ -11,14 +11,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 200px;
+    padding-top: 216px;
 
     .home-welcome-header {
       font-size: 2em;
       color: rgb(157, 157, 157);
       font-weight: 500;
+      width: 90vw;
       text-align: center;
-      padding-bottom: 40px;
+      padding-top: 12px;
+      padding-bottom: 80px;
+      // margin-bottom: 40px;
+
+      clip-path: polygon(
+        87.3% 0,
+        99.5% 60%,
+        100% 100%,
+        89.7% 63%,
+        10.3% 63%,
+        0 100%,
+        0.5% 60%,
+        12.7% 0
+      );
+      // box-shadow: 5px 5px 6px 2px rgba(0, 0, 0, 0.9),
+      //   inset 0 0 190px 90px rgba(0, 0, 0, 0.7);
+      // box-shadow: inset 0px 13px 30px 30px rgba(0, 0, 0, 0.6);
+      box-shadow: inset 0px 29px 42px 33px rgba(0, 0, 0, 0.6);
     }
     .home-welcome-sub-header {
       display: flex;
@@ -27,8 +45,19 @@
       flex-wrap: wrap;
       height: auto;
       width: 90vw;
-      box-shadow: 5px 5px 6px 2px rgba(0, 0, 0, 0.9),
-        inset 0 0 190px 90px rgba(0, 0, 0, 0.7);
+      clip-path: polygon(
+        90% 0,
+        100% 8%,
+        100% 92%,
+        92% 100%,
+        8% 100%,
+        0 90%,
+        0 8%,
+        10% 0
+      );
+      // box-shadow: 5px 5px 6px 2px rgba(0, 0, 0, 0.9),
+      box-shadow: inset 0 0px 190px 90px rgba(0, 0, 0, 0.7);
+      transform: translateY(-30px);
 
       .sub-header-text {
         display: flex;
@@ -49,7 +78,7 @@
         justify-content: center;
         width: 40%;
         min-width: 300px;
-        padding: 20px 0px;
+        padding: 40px 0px;
       }
       .sub-header-picture img {
         min-width: 150px;

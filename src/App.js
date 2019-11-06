@@ -9,7 +9,7 @@ import Function from "./pages/function"
 import NavBar from "./components/nav-bar"
 
 const App = () => {
-  const [isEncryptOpen, setIsEncryptOpen] = useState(false)
+  const [isEncryptOpen, setIsEncryptOpen] = useState(true)
   const [isDecryptOpen, setIsDecryptOpen] = useState(false)
 
   const handleEncryptModalToggle = e => {

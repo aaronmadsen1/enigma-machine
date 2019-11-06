@@ -154,14 +154,16 @@ const EnigmaDecryptModal = props => {
 
   const [modalCustomStyles] = useState({
     content: {
-      top: "5%",
+      top: "15%",
       bottom: "3%",
-      left: "2%",
-      right: "2%",
+      left: "5%",
+      right: "5%",
       marginRight: "0%",
       transform: "translate(0%, 0%)",
       // backgroundColor: "rgba(0, 0, 0, .9)",
       backgroundImage: "url(" + bkgImg + ")",
+
+      border: "1px solid #638068",
       boxShadow: "inset 0px 0px 300px 300px rgba(0, 0, 0, .6)"
     },
     overlay: {
@@ -367,7 +369,7 @@ const EnigmaDecryptModal = props => {
       <div className="modal-container">
         <div className="modal-header">
           <div className="modal-title">
-            Enigma Decryption
+            Decryption
             <div className="link-to-other-modal">
               <Link className="nav-link-button" onClick={handleModalSwitch}>
                 Encryption Module
