@@ -9,12 +9,12 @@ const NavBar = props => {
         <img src={EnigmaLogo} />
       </div>
       <div className="nav-links-wrapper">
-        <div>
+        <div className="nav-link-button-div">
           <Link className="nav-link-button" to="/">
             Home
           </Link>
         </div>
-        <div>
+        <div className="nav-link-button-div">
           <Link className="nav-link-button" to="/function">
             How it Works
           </Link>
@@ -24,7 +24,7 @@ const NavBar = props => {
             History
           </Link>
         </div> */}
-        <div>
+        <div className="nav-link-button-div">
           <Link
             className="nav-link-button"
             onClick={props.handleEncryptModalToggle}
@@ -32,7 +32,7 @@ const NavBar = props => {
             Encrypt
           </Link>
         </div>
-        <div>
+        <div className="nav-link-button-div">
           <Link
             className="nav-link-button"
             onClick={props.handleDecryptModalToggle}

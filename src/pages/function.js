@@ -21,7 +21,9 @@ const Function = props => {
       <div className="function-page-container">
         <div className="content-wrapper">
           <div className="function-welcome-header">
-            How does the Enigma Machine work?
+            <div className="function-welcome-header-text">
+              How does the Enigma Machine work?
+            </div>
           </div>
           <div className="function-welcome-sub-header">
             <div className="sub-header-picture">

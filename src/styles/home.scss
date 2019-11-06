@@ -1,10 +1,11 @@
 .home-page-container {
   background: rgba(0, 0, 0, 0.091);
   background-image: url(../images/darkWood2.jpg);
-  background-repeat: repeat;
-  background-size: cover;
   background-attachment: fixed;
-  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // position: absolute;
   box-shadow: inset 0 0 190px 500px rgba(0, 0, 0, 0.5);
 
   .content-wrapper {
@@ -14,6 +15,8 @@
     padding-top: 216px;
 
     .home-welcome-header {
+      display: flex;
+      justify-content: center;
       font-size: 2em;
       color: rgb(157, 157, 157);
       font-weight: 500;
@@ -37,7 +40,21 @@
       //   inset 0 0 190px 90px rgba(0, 0, 0, 0.7);
       // box-shadow: inset 0px 13px 30px 30px rgba(0, 0, 0, 0.6);
       box-shadow: inset 0px 29px 42px 33px rgba(0, 0, 0, 0.6);
+      .home-welcome-header-text {
+        width: 72vw;
+      }
     }
+    @media (max-width: 890px) {
+      .home-welcome-header {
+        font-size: 1.3em;
+      }
+    }
+    @media (max-width: 595px) {
+      .home-welcome-header {
+        font-size: 1.1em;
+      }
+    }
+
     .home-welcome-sub-header {
       display: flex;
       justify-content: center;
@@ -64,12 +81,29 @@
         flex-direction: column;
         color: rgb(172, 172, 172);
         font-size: 1.5em;
-        width: 40%;
-        min-width: 300px;
-        padding: 20px 0px;
+        max-width: 50%;
+        min-width: 190px;
+        padding: 20px 20px;
 
         .inner-container {
           padding: 10px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sub-header-text {
+          font-size: 1.2em;
+        }
+      }
+      @media (max-width: 405px) {
+        .sub-header-text {
+          max-width: 200px;
+          padding-top: 35px;
+        }
+      }
+      @media (max-width: 754px) {
+        .sub-header-text {
+          max-width: 60%;
         }
       }
 
@@ -86,6 +120,21 @@
         height: auto;
         width: 100%;
       }
+    }
+  }
+  @media (max-width: 462px) {
+    .content-wrapper {
+      padding-top: 250px;
+    }
+  }
+  @media (max-width: 250px) {
+    .content-wrapper {
+      padding-top: 270px;
+    }
+  }
+  @media (max-width: 212px) {
+    .content-wrapper {
+      padding-top: 300px;
     }
   }
 }

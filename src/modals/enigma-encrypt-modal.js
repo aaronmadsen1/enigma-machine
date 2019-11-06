@@ -155,7 +155,7 @@ const EnigmaEncryptModal = props => {
 
   const [modalCustomStyles] = useState({
     content: {
-      top: "15%",
+      top: "150px",
       bottom: "3%",
       left: "5%",
       right: "5%",

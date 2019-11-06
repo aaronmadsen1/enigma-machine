@@ -1,28 +1,30 @@
 .function-page-container {
   background: rgba(0, 0, 0, 0.091);
   background-image: url(../images/darkWood2.jpg);
-  background-repeat: repeat-y;
-  background-size: cover;
   background-attachment: fixed;
-  height: 250vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   box-shadow: inset 0 0 190px 500px rgba(0, 0, 0, 0.5);
 
   .content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 200px;
+    padding-top: 220px;
 
     .function-welcome-header {
+      display: flex;
+      justify-content: center;
       font-size: 2em;
       color: rgb(157, 157, 157);
       font-weight: 500;
       width: 100%;
       max-width: 1000px;
 
-      min-width: 500px;
+      min-width: 400px;
       text-align: center;
-      margin-top: 20px;
+      // margin-top: 20px;
       padding-bottom: 60px;
       padding-top: 10px;
       clip-path: polygon(
@@ -35,17 +37,32 @@
         0.5% 60%,
         12.7% 0
       );
-      box-shadow: inset 0px 23px 42px 33px rgba(0, 0, 0, 0.7);
+      box-shadow: inset 0px 10px 35px 33px rgba(0, 0, 0, 0.7);
+
+      .function-welcome-header-text {
+        width: 72vw;
+      }
     }
+    @media (max-width: 890px) {
+      .function-welcome-header {
+        font-size: 1.3em;
+      }
+    }
+    @media (max-width: 595px) {
+      .function-welcome-header {
+        font-size: 1.1em;
+      }
+    }
+
     .function-welcome-sub-header {
       padding: 20px 50px;
       clip-path: polygon(
         90% 0,
         100% 2%,
-        100% 92%,
-        92% 100%,
-        8% 100%,
-        0 90%,
+        100% 98%,
+        90% 100%,
+        10% 100%,
+        0 98%,
         0 2%,
         10% 0
       );
@@ -66,6 +83,21 @@
         height: auto;
         width: 100%;
       }
+    }
+  }
+  @media (max-width: 462px) {
+    .content-wrapper {
+      padding-top: 250px;
+    }
+  }
+  @media (max-width: 250px) {
+    .content-wrapper {
+      padding-top: 270px;
+    }
+  }
+  @media (max-width: 212px) {
+    .content-wrapper {
+      padding-top: 300px;
     }
   }
 }
