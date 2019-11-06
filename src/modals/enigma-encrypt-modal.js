@@ -24,8 +24,8 @@ const EnigmaEncryptModal = props => {
 
   const [plugboard_initialSetting, setPlugboard_initialSetting] = useState(0)
   const [plugboardLetter_1a, setPlugboardLetter_1a] = useState("")
-  const [plugboardLetter_1b, setPlugboardLetter_1b] = useState("")
   const [plugboardLetter_2a, setPlugboardLetter_2a] = useState("")
+  const [plugboardLetter_1b, setPlugboardLetter_1b] = useState("")
   const [plugboardLetter_2b, setPlugboardLetter_2b] = useState("")
   const [plugboardLetter_3a, setPlugboardLetter_3a] = useState("")
   const [plugboardLetter_3b, setPlugboardLetter_3b] = useState("")
@@ -211,33 +211,33 @@ const EnigmaEncryptModal = props => {
 
   // * * * * * * * * * * API CALLS * * * * * * * * * *
 
-  // const returnSubmittedMessageId = () => {
-  //   axios
-  //     .get(
-  //       "https://cors-anywhere.herokuapp.com/https://enigma-machine-backend.herokuapp.com/messages"
-  //     )
-  //     .then(response => {
-  //       console.log(
-  //         "Got All Messages",
-  //         response.data.filter(
-  //           message => message.encryption == encryptedMessageLog
-  //         )[0].id
-  //       )
-  //       setReturnedId(
-  //         response.data.filter(
-  //           message => message.encryption == encryptedMessageLog
-  //         )[0].id
-  //       )
-  //       console.log(returnedId)
-  //     })
-  //     .catch(error => {
-  //       console.log("Error Getting All Messages", error)
-  //       alert(
-  //         "Stormy weather somewhere maybe.. But we're having trouble retrieving your message. Please wait a sec and try again."
-  //       )
-  //       // alert("Error Getting All Messages", error)
-  //     })
-  // }
+  const returnSubmittedMessageId = () => {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://enigma-machine-backend.herokuapp.com/messages"
+      )
+      .then(response => {
+        console.log(
+          "Got All Messages",
+          response.data.filter(
+            message => message.encryption == encryptedMessageLog
+          )[0].id
+        )
+        setReturnedId(
+          response.data.filter(
+            message => message.encryption == encryptedMessageLog
+          )[0].id
+        )
+        console.log(returnedId)
+      })
+      .catch(error => {
+        console.log("Error Getting All Messages", error)
+        // alert(
+        //   "Stormy weather somewhere maybe.. But we're having trouble retrieving your message. Please wait a sec and try again."
+        // )
+        // alert("Error Getting All Messages", error)
+      })
+  }
 
   const postMessage = () => {
     if (encryptedMessage === "") {
@@ -253,7 +253,9 @@ const EnigmaEncryptModal = props => {
       )
       .then(response => {
         console.log("Message Posted", response)
-        console.log("Message Sent. ", response)
+        alert(
+          "SUCCESS! Now don't forget to write down the settings and the Message ID#"
+        )
         setEncryptedMessageLog(encryptedMessage)
         // setEncryptedMessage(
         //   `Success! Your encrypted message is now stored on the cloud and can be retrieved with the id`
@@ -338,9 +340,15 @@ const EnigmaEncryptModal = props => {
             reflector_initialSetting
           )
         )
-        alert(
-          "Don't forget to write down the settings and the Message ID# before submitting your message to the cloud!"
-        )
+      }
+    }
+  }
+
+  const handleFilterPlugboardList = value => {
+    let i = 0
+    for (let i = 0; i < alphatbetListforPlugboardSettings.length; i++) {
+      if (alphatbetListforPlugboardSettings[i].value == value) {
+        return alphatbetListforPlugboardSettings.splice(i, 1)
       }
     }
   }
@@ -354,23 +362,13 @@ const EnigmaEncryptModal = props => {
     }
   }
 
-  const handleFilterPlugboardList = value => {
-    let i = 0
-    for (let i = 0; i < alphatbetListforPlugboardSettings.length; i++) {
-      if (alphatbetListforPlugboardSettings[i].value == value) {
-        return alphatbetListforPlugboardSettings.splice(i, 1)
-      }
-    }
-  }
-  console.log(plugboardSwap)
-
   const handleModalSwitch = () => {
     props.handleEncryptModalToggle()
     props.handleDecryptModalToggle()
   }
 
   useEffect(() => {
-    // returnSubmittedMessageId()
+    returnSubmittedMessageId()
     setEncryptedMessage("")
     setUserMessage("")
   }, [encryptedMessageLog])

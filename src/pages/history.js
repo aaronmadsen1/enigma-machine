@@ -7,10 +7,12 @@ const History = props => {
     <div className="history-page-wrapper">
       <EnigmaEncryptModal
         handleEncryptModalToggle={props.handleEncryptModalToggle}
+        handleDecryptModalToggle={props.handleDecryptModalToggle}
         isEncryptOpen={props.isEncryptOpen}
       />
       <EnigmaDecryptModal
         handleDecryptModalToggle={props.handleDecryptModalToggle}
+        handleEncryptModalToggle={props.handleEncryptModalToggle}
         isDecryptOpen={props.isDecryptOpen}
       />
       History Page

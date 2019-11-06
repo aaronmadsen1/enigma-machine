@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import "./styles/main.scss"
 import Home from "./pages/home"
-import History from "./pages/history"
+// import History from "./pages/history"
+import Function from "./pages/function"
 import NavBar from "./components/nav-bar"
 
 const App = () => {
@@ -48,6 +49,18 @@ const App = () => {
               )}
             />
             <Route
+              path="/function"
+              render={props => (
+                <Function
+                  {...props}
+                  handleEncryptModalToggle={handleEncryptModalToggle}
+                  isEncryptOpen={isEncryptOpen}
+                  handleDecryptModalToggle={handleDecryptModalToggle}
+                  isDecryptOpen={isDecryptOpen}
+                />
+              )}
+            />
+            {/* <Route
               path="/history"
               render={props => (
                 <History
@@ -58,7 +71,7 @@ const App = () => {
                   isDecryptOpen={isDecryptOpen}
                 />
               )}
-            />
+            /> */}
           </Switch>
         </div>
       </Router>

@@ -333,16 +333,16 @@ const EnigmaDecryptModal = props => {
     }
   }
 
-  const handleFilterRotorPositionList = value => {
+  const handleFilterPlugboardList = value => {
     let i = 0
-    for (let i = 0; i < numListForRotorPosition.length; i++) {
-      if (numListForRotorPosition[i].value == value) {
-        return numListForRotorPosition.splice(i, 1)
+    for (let i = 0; i < alphatbetListforPlugboardSettings.length; i++) {
+      if (alphatbetListforPlugboardSettings[i].value == value) {
+        return alphatbetListforPlugboardSettings.splice(i, 1)
       }
     }
   }
 
-  const handleFilterPlugboardList = value => {
+  const handleFilterRotorPositionList = value => {
     let i = 0
     for (let i = 0; i < numListForRotorPosition.length; i++) {
       if (numListForRotorPosition[i].value == value) {
@@ -402,7 +402,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_1a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_1a
                           )}
                         />
@@ -414,7 +414,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_1b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_1b
                           )}
                         />
@@ -429,7 +429,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_2a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_2a
                           )}
                         />
@@ -441,7 +441,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_2b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_2b
                           )}
                         />
@@ -456,7 +456,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_3a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_3a
                           )}
                         />
@@ -468,7 +468,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_3b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_3b
                           )}
                         />
@@ -483,7 +483,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_4a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_4a
                           )}
                         />
@@ -495,7 +495,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_4b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_4b
                           )}
                         />
@@ -510,7 +510,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_5a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_5a
                           )}
                         />
@@ -522,7 +522,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_5b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_5b
                           )}
                         />
@@ -537,7 +537,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_6a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_6a
                           )}
                         />
@@ -549,7 +549,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_6b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_6b
                           )}
                         />
@@ -564,7 +564,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_7a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_7a
                           )}
                         />
@@ -576,7 +576,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_7b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_7b
                           )}
                         />
@@ -591,7 +591,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_8a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_8a
                           )}
                         />
@@ -603,7 +603,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_8b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_8b
                           )}
                         />
@@ -618,7 +618,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_9a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_9a
                           )}
                         />
@@ -630,7 +630,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_9b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_9b
                           )}
                         />
@@ -645,7 +645,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_10a(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_10a
                           )}
                         />
@@ -657,7 +657,7 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={alphatbetListforPlugboardSettings}
                           onChange={e => setPlugboardLetter_10b(e.value)}
-                          onClick={handleFilterRotorPositionList(
+                          onClick={handleFilterPlugboardList(
                             plugboardLetter_10b
                           )}
                         />
@@ -689,7 +689,9 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorA_position(e.value)}
-                          onClick={handleFilterPlugboardList(rotorA_position)}
+                          onClick={handleFilterRotorPositionList(
+                            rotorA_position
+                          )}
                         />
                       </div>
                     </div>
@@ -702,7 +704,9 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorB_position(e.value)}
-                          onClick={handleFilterPlugboardList(rotorB_position)}
+                          onClick={handleFilterRotorPositionList(
+                            rotorB_position
+                          )}
                         />
                       </div>
                     </div>
@@ -715,7 +719,9 @@ const EnigmaDecryptModal = props => {
                           // value={selectedOption}
                           options={numListForRotorPosition}
                           onChange={e => setRotorC_position(e.value)}
-                          onClick={handleFilterPlugboardList(rotorC_position)}
+                          onClick={handleFilterRotorPositionList(
+                            rotorC_position
+                          )}
                         />
                       </div>
                     </div>

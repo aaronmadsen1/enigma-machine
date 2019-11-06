@@ -1,17 +1,29 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import EnigmaLogo from "../images/enigmaLogo.png"
 
 const NavBar = props => {
   return (
     <div className="nav-bar-wrapper">
-      <div className="nav-title-wrapper">Enigma Machine</div>
+      <div className="nav-title-wrapper">
+        <img src={EnigmaLogo} />
+      </div>
       <div className="nav-links-wrapper">
         <div>
           <Link className="nav-link-button" to="/">
             Home
           </Link>
         </div>
+        <div>
+          <Link className="nav-link-button" to="/function">
+            How it Works
+          </Link>
+        </div>
+        {/* <div>
+          <Link className="nav-link-button" to="/history">
+            History
+          </Link>
+        </div> */}
         <div>
           <Link
             className="nav-link-button"
@@ -26,11 +38,6 @@ const NavBar = props => {
             onClick={props.handleDecryptModalToggle}
           >
             Decrypt
-          </Link>
-        </div>
-        <div>
-          <Link className="nav-link-button" to="/history">
-            History
           </Link>
         </div>
       </div>
